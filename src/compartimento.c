@@ -84,7 +84,6 @@ void ImprimeListaRochaM(Compartimento *LRM){
     }
     printf("\nCategoria: %s", categoria_imprimir);
     printf("\nPeso: %f", pAuxI->rocha.peso);
-    printf("\nLocalizacao: %f %f", pAuxI->rocha.localizacao.Latitude, pAuxI->rocha.localizacao.Longitude);
         printf("\n");
         pAuxI = pAuxI->pProx;
     }
