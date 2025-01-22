@@ -44,17 +44,99 @@ void preencher_rocha_mineral(FILE *arquivo, int i, RochaMineral *nova_rocha) {
         j++;
     }
 }
+void classificar_rocha(RochaMineral *nova_rocha){
 
+    int Ferrolita = 0, Solarium = 0, Aquavitae = 0, Terranita = 0, Calaris = 0;
+
+    for (int i = 0; i < 3; i++) {
+        if (strcmp(nova_rocha.minerais[i], "Ferrolita") == 0){
+            Ferrolita += 1;
+        }
+        else if (strcmp(nova_rocha.minerais[i], "Solarium") == 0) {
+            Solarium += 1;
+        }
+        else if (strcmp(nova_rocha.minerais[i], "Aquavitae") == 0) {
+            Aquavitae += 1;
+        }
+        else if (strcmp(nova_rocha.minerais[i], "Terranita") == 0) {
+            Terranita += 1;
+        }
+        else if (strcmp(nova_rocha.minerais[i], "Calaris") == 0) {
+            Calaris += 1;
+        }
+    }
+
+    if (Ferrolita == 1 && Solarium == 0 && Aquavitae == 0 && Terranita == 0 && Calaris == 0) {
+    nova_rocha->categoria = Ferrom;
+    }
+    else if (Ferrolita == 0 && Solarium == 1 && Aquavitae == 0 && Terranita == 0 && Calaris == 0) {
+        nova_rocha->categoria = Solaris;
+    }
+    else if (Ferrolita == 1 && Solarium == 0 && Aquavitae == 1 && Terranita == 0 && Calaris == 0) {
+        nova_rocha->categoria = Aquaferro;
+    }
+    else if (Ferrolita == 0 && Solarium == 0 && Aquavitae == 0 && Terranita == 1 && Calaris == 1) {
+        nova_rocha->categoria = Terrolis;
+    }
+    else if (Ferrolita == 0 && Solarium == 1 && Aquavitae == 0 && Terranita == 1 && Calaris == 0) {
+        nova_rocha->categoria = Terrasol;
+    }
+    else if (Ferrolita == 0 && Solarium == 0 && Aquavitae == 1 && Terranita == 1 && Calaris == 0) {
+        nova_rocha->categoria = Aquaterra;
+    }
+    else if (Ferrolita == 0 && Solarium == 0 && Aquavitae == 1 && Terranita == 0 && Calaris == 1) {
+        nova_rocha->categoria = Calquer;
+    }
+    else if (Ferrolita == 1 && Solarium == 1 && Aquavitae == 0 && Terranita == 0 && Calaris == 0) {
+        nova_rocha->categoria = Solarisfer;
+    }
+    else if (Ferrolita == 1 && Solarium == 0 && Aquavitae == 0 && Terranita == 1 && Calaris == 0) {
+        nova_rocha->categoria = Terralis;
+    }
+    else if (Ferrolita == 1 && Solarium == 0 && Aquavitae == 1 && Terranita == 0 && Calaris == 1) {
+        nova_rocha->categoria = Aquacalis;
+    }
+}
 void imprimir_rocha_mineral(RochaMineral *nova_rocha){
 
     char categoria_imprimir[255];
-    int i = 0;
 
-    printf("Peso: %.2f", nova_rocha->localizacao.latitude);
-    printf("\nPeso: %.2f", nova_rocha->localizacao.longitude);
-    printf("\nPeso: %.2f", nova_rocha->peso);
-    while(nova_rocha->minerais != NULL){
-        printf("\nPeso: %.2s", nova_rocha->minerais[i]);
-        i++;
+    switch (nova_rocha->categoria)
+    {
+    case Ferrom:
+        strcpy(categoria_imprimir, "Ferrom");
+        break;
+    case Solaris:
+        strcpy(categoria_imprimir, "Solaris");
+        break;
+    case Aquaferro:
+        strcpy(categoria_imprimir, "Aquaferro");
+        break;
+    case Terrolis:
+        strcpy(categoria_imprimir, "Terrolis");
+        break;
+    case Terrasol:
+        strcpy(categoria_imprimir, "Terrasol");
+        break;
+    case Aquaterra:
+        strcpy(categoria_imprimir, "Aquaterra");
+        break;
+    case Calquer:
+        strcpy(categoria_imprimir, "Calquer");
+        break;
+    case Solarisfer:
+        strcpy(categoria_imprimir, "Solarisfer");
+        break;
+    case Terralis:
+        strcpy(categoria_imprimir, "Terralis");
+        break;
+    case Aquacalis:
+        strcpy(categoria_imprimir, "Aquacalis");
+        break;
+    default: strcpy(categoria_imprimir, "Erro");
+        break;
     }
+    printf("\nCategoria: %s", categoria_imprimir);
+    printf("\nPeso: %f", nova_rocha->peso);
+    printf("\nLocalizacao: %f %f", nova_rocha->localizacao.Latitude, nova_rocha->localizacao.Longitude);
 }

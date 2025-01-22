@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "headers/compartimento.h"
+#include "headers/rocha_mineral.h"
 
 void FListaRochaM(Compartimento *LRM){
     LRM->pPrimeiro = (CelulaC*)malloc(sizeof(CelulaC));
@@ -44,7 +45,45 @@ void ImprimeListaRochaM(Compartimento *LRM){
     pAuxI = LRM->pPrimeiro->pProx;
     while (pAuxI != NULL)
     {
-        printf("Peso: %.2f\n", pAuxI->rocha.peso);
+        char categoria_imprimir[255];
+
+    switch (pAuxI->rocha.categoria)
+    {
+    case Ferrom:
+        strcpy(categoria_imprimir, "Ferrom");
+        break;
+    case Solaris:
+        strcpy(categoria_imprimir, "Solaris");
+        break;
+    case Aquaferro:
+        strcpy(categoria_imprimir, "Aquaferro");
+        break;
+    case Terrolis:
+        strcpy(categoria_imprimir, "Terrolis");
+        break;
+    case Terrasol:
+        strcpy(categoria_imprimir, "Terrasol");
+        break;
+    case Aquaterra:
+        strcpy(categoria_imprimir, "Aquaterra");
+        break;
+    case Calquer:
+        strcpy(categoria_imprimir, "Calquer");
+        break;
+    case Solarisfer:
+        strcpy(categoria_imprimir, "Solarisfer");
+        break;
+    case Terralis:
+        strcpy(categoria_imprimir, "Terralis");
+        break;
+    case Aquacalis:
+        strcpy(categoria_imprimir, "Aquacalis");
+        break;
+    default: strcpy(categoria_imprimir, "Erro");
+        break;
+    }
+    printf("\nCategoria: %s", categoria_imprimir);
+    printf("\nPeso: %f", pAuxI->rocha.peso);
         printf("\n");
         pAuxI = pAuxI->pProx;
     }
