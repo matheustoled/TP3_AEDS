@@ -6,8 +6,22 @@ typedef struct loc {
     float longitude;
 } loc;
 
+typedef enum Categoria {
+    Ferrom,
+    Solaris,
+    Aquaferro,
+    Terrolis,
+    Terrasol,
+    Aquaterra,
+    Calquer,
+    Solarisfer,
+    Terralis,
+    Aquacalis
+} Categoria;
+
 typedef struct RochaMineral {
     loc localizacao;
+    categoria categoria;
     float peso;
     char minerais[3][255];
 } RochaMineral;
