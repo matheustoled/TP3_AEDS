@@ -47,7 +47,7 @@ int main() {
         printf("Movimentacoes: %d\n", movimentacoes);
 
         cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC; //tempo em segundos
-        printf("\nTempo de execucao: %.3f segundos", cpu_time_used);
+        printf("Tempo de execucao: %.3f segundos", cpu_time_used);
         
         return 0;
     } else if (resposta == 2){
@@ -81,7 +81,7 @@ int main() {
         printf("Movimentacoes: %d\n", movimentacoes);
     
         cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC; //tempo em segundos
-        printf("\nTempo de execucao: %.3f segundos", cpu_time_used);
+        printf("Tempo de execucao: %.3f segundos", cpu_time_used);
 
         return 0;
     }
