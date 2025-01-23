@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "central_controle.h": "c",
+        "compartimento.h": "c"
+    }
+}

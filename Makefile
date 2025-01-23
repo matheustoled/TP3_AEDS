@@ -1,0 +1,2 @@
+compile: src/main.c src/central_controle.c src/compartimento.c src/rocha_mineral.c src/lista_minerais.c src/mineral.c
+	gcc src/main.c src/central_controle.c src/compartimento.c src/rocha_mineral.c src/lista_minerais.c src/mineral.c -o bin/programa
